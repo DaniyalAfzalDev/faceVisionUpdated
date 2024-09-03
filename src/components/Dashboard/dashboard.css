@@ -1,0 +1,27 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    background-color:var(--app-color);
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 88%;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-content {
+        margin-left: 0;
+    }
+}

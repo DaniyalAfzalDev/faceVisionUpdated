@@ -1,7 +1,24 @@
+:root {
+  --primary-color: #5f8053;
+  --secondary-color: #d5e9be;
+  --sidebar-color:#FFFFFF;
+  --app-color:  #F7F8FA;
+  --hover-color: #EDF5FC;
+  --hoverText-color: #508CED;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --text-color: #4e4e4e;
+  --background-color: #f0f0f0; 
+  --font-size:0.9vw;
+  --headerFont-size:0.8vw
+}
+
 .App {
   text-align: center;
 }
 
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
