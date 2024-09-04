@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from 'react';
 import TableComponent from './departmentTable';
 const Department = () => {
-    const data = [
+    const [data, setData] = useState([
         { departmentName: 'HR', superior: 'John Doe', employeeQty: 5 },
         { departmentName: 'IT', superior: 'Jane Smith', employeeQty: 12 },
         { departmentName: 'Finance', superior: 'Richard Roe', employeeQty: 7 },
@@ -23,12 +23,12 @@ const Department = () => {
         { departmentName: 'Procurement', superior: 'Elijah Scott', employeeQty: 11 },
         { departmentName: 'Logistics', superior: 'Amelia Adams', employeeQty: 12 },
         { departmentName: 'Strategy', superior: 'Alexander Baker', employeeQty: 13 },
-    ];
+    ]);
     
 
     return (
         <div>
-            <TableComponent data={data} />
+            <TableComponent data={data} setData={setData} />
         </div>
     )
 }
