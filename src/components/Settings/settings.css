@@ -1,0 +1,27 @@
+.settings-page {
+    display: flex;
+  }
+  
+  .tabs {
+    width: 200px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .tabs button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .tabs button.active {
+    background: #ddd;
+  }
+  
+  .tab-content {
+    flex: 1;
+    padding: 20px;
+  }
+  

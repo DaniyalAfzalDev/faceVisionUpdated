@@ -1,37 +1,63 @@
-import React from "react";
-import "./dashboard_table.css"; // Import the CSS file for styling
+import React, { useEffect } from "react";
+import '../Dashboard_Table/dashboard_table.css';
 
-const Table = () => {
+const Leave_Summary_Report = ({searchQuery, sendDataToParent  }) => {
     const data = [
-        { advertiser: "HBO", date: "12 / 04 / 2022 08:25", owner: "Camila Rios", channel: "bt.dk", status: "Pending", commission: "34,55 USD" },
-        { advertiser: "Lirum Larum Leg", date: "16 / 04 / 2022 15:20", owner: "Diana Smith", channel: "Berlinske.dk", status: "Pending", commission: "18,42 USD" },
-        { advertiser: "Kop & Kande", date: "17 / 04 / 2022 16:45", owner: "Wade Warren", channel: "Berlinske.dk", status: "Paid", commission: "21,55 USD" },
-        { advertiser: "Temashop", date: "20 / 04 / 2022 05:35", owner: "Guy Hawkins", channel: "bt.dk", status: "Paid", commission: "42,19 USD" },
+        { employeeId: "E001", employeeName: "Camila Rios", date: "01/05/2022", leave: "Sick Leave" },
+        { employeeId: "E002", employeeName: "Diana Smith", date: "03/05/2022", leave: "Casual Leave" },
+        { employeeId: "E003", employeeName: "Wade Warren", date: "07/05/2022", leave: "Annual Leave" },
+        { employeeId: "E004", employeeName: "Guy Hawkins", date: "10/05/2022", leave: "Medical Leave" },
+        { employeeId: "E005", employeeName: "Emily Davis", date: "12/05/2022", leave: "Sick Leave" },
+        { employeeId: "E006", employeeName: "Michael Brown", date: "15/05/2022", leave: "Casual Leave" },
+        { employeeId: "E007", employeeName: "Jessica White", date: "18/05/2022", leave: "Annual Leave" },
+        { employeeId: "E008", employeeName: "David Johnson", date: "22/05/2022", leave: "Medical Leave" },
+        { employeeId: "E009", employeeName: "Laura Martinez", date: "24/05/2022", leave: "Sick Leave" },
+        { employeeId: "E010", employeeName: "James Lee", date: "27/05/2022", leave: "Casual Leave" },
+        { employeeId: "E011", employeeName: "Anna Wilson", date: "30/05/2022", leave: "Annual Leave" },
+        { employeeId: "E012", employeeName: "John Scott", date: "02/06/2022", leave: "Medical Leave" },
+        { employeeId: "E013", employeeName: "Olivia Taylor", date: "05/06/2022", leave: "Sick Leave" },
+        { employeeId: "E014", employeeName: "Chris Anderson", date: "08/06/2022", leave: "Casual Leave" },
+        { employeeId: "E015", employeeName: "Sophia Harris", date: "11/06/2022", leave: "Annual Leave" },
+        { employeeId: "E016", employeeName: "Matthew Clark", date: "14/06/2022", leave: "Medical Leave" },
+        { employeeId: "E017", employeeName: "Charlotte Lewis", date: "17/06/2022", leave: "Sick Leave" },
+        { employeeId: "E018", employeeName: "Ethan Walker", date: "20/06/2022", leave: "Casual Leave" },
+        { employeeId: "E019", employeeName: "Ava Young", date: "23/06/2022", leave: "Annual Leave" },
+        { employeeId: "E020", employeeName: "Daniel King", date: "26/06/2022", leave: "Medical Leave" },
     ];
+
+    const filteredData = data.filter(row =>
+        row.employeeId.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.employeeName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.date.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.leave.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    // Send filtered data to parent
+    useEffect(() => {
+        sendDataToParent(filteredData);
+    }, [filteredData, sendDataToParent]);
 
     return (
         <div className="table-container">
-            <h3>Latest Conversions <span className="live-data">Live data</span></h3>
+            <h3>Summary All Leave Report</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Advertiser</th>
+                        <th>Serial No</th>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
                         <th>Date</th>
-                        <th>Owner</th>
-                        <th>Channel</th>
-                        <th>Status</th>
-                        <th>Commission</th>
+                        <th>Leave</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((row, index) => (
+                    {filteredData.map((row, index) => (
                         <tr key={index}>
-                            <td>{row.advertiser}</td>
+                            <td>{index + 1}</td>
+                            <td>{row.employeeId}</td>
+                            <td>{row.employeeName}</td>
                             <td>{row.date}</td>
-                            <td>{row.owner}</td>
-                            <td>{row.channel}</td>
-                            <td><span className={row.status.toLowerCase()}>{row.status}</span></td>
-                            <td>{row.commission}</td>
+                            <td>{row.leave}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -40,4 +66,5 @@ const Table = () => {
     );
 };
 
-export default Table;
+
+export default Leave_Summary_Report;
