@@ -1,0 +1,79 @@
+.department-table{
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+    text-align: left;
+    height: 65vh;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: var(--theam-color);
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color:var( --hover-color);
+}
+
+.table tr:hover {
+    background-color:var( --hover-color);
+}
+
+.search-input {
+    width: 15%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: end;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover, .pagination span.active {
+    background-color: var(--theam-color);
+    color: #fff;
+}
+
+.pagination .disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination li.active a {
+    background-color: var(--theam-color);
+    color: white;
+    border: 1px solid var(--theam-color);
+}
