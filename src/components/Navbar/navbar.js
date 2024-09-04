@@ -4,7 +4,7 @@ import './navbar.css';
 const Navbar = ({ selectedMenu }) => {
     return (
         <div className="navbar">
-            <h1>{selectedMenu}</h1>
+            <h2>{selectedMenu}</h2>
             <div className="navbar-links">
                 <a href="#">Profile</a>
                 <a href="#">Settings</a>

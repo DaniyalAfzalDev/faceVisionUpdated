@@ -25,7 +25,7 @@ const Sidebar = ({ onMenuChange }) => {
 
     return (
         <div className="sidebar">
-            <h2>FaceVision</h2>
+            <h2>FaceVision.</h2>
             <div className="sidebar-main">
                 <div className="sidebar-menu">
                     <button className={`menu-item ${activeButton === 'Dashboard' ? 'active' : ''}`} onClick={() => passValue('Dashboard')}>
