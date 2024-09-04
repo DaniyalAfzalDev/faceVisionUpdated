@@ -1,0 +1,33 @@
+.report{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    align-items: center;
+}
+.report h2{
+    color: var(--text-color);
+    font-size: 1vw;
+}
+.report-selector{
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 5vh;
+    padding: 0.1% 0.6%;
+    border-radius: 5px;
+    /* width: 12vw; */
+}
+.report-selector select{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 0.8vw;
+
+}
+.report-selector-icon{
+    margin-right: 3px;
+    font-size: 1vw;
+    color: var(--theam-color);
+}
