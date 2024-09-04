@@ -10,7 +10,8 @@
   --text-color: #4e4e4e;
   --background-color: #f0f0f0; 
   --font-size:0.9vw;
-  --headerFont-size:0.8vw
+  --headerFont-size:0.8vw;
+  --border-color: #d4d2d2
 }
 
 .App {
