@@ -230,15 +230,25 @@ input:checked+.slider:before {
 }
 
 .activeStatus {
-    color:var(--success-button-color);
-    border: 1px solid var(--success-button-color);
-    border-radius: 5px;
+    color: #2ebf2e;
+    border: 1px solid #2ebf2e;
+    border-radius: 15px;
+    width: 3vw;
+    text-align: center;
+    padding: unset;
 }
 .inactiveStatus {
-    color:var(--fail-button-color);
-    border: 1px solid var(--fail-button-color);
-    border-radius: 5px;
+    color: #f16262;
+    border: 1px solid #f16262;
+    border-radius: 15px;
+    width: 3vw;
+    text-align: center;
+    padding: unset;
 }
 .device-table{
     margin-top: 1%;
+}
+.device-table thead tr th{
+    color: #6b7280;
+    background-color: #f9fafb;
 }
