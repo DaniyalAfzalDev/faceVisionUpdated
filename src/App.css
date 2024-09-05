@@ -19,7 +19,15 @@
   --font-size:0.9vw;
   --headerFont-size:0.8vw;
   --inner-border-color:  #508CED;
-  --border-color: #d4d2d2
+  --pagination-hover-color:black
+  --timing: 0.3s;
+  --width-of-input: 300px;
+  --height-of-input: 40px;
+  --border-height: 2px;
+  --input-bg: #fff;
+  --border-radius: 30px;
+  --after-border-radius: 1px;
+
 }
 
 .App {

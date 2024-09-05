@@ -39,6 +39,7 @@
 .generate-report-button {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: var(--success-button-color);
     border: 5px solid var(--success-button-color);
     color: #fff;
@@ -48,7 +49,7 @@
     font-size: 0.8vw;
     transition: background-color 0.3s;
     height: 4vh;
-    width:8vw;
+    width:9vw;
 
 }
 

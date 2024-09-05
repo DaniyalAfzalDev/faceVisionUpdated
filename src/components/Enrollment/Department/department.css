@@ -75,7 +75,7 @@
     opacity: 0.5;
 }
 
-.pagination li.active a {
+.pagination-active {
     background-color: var(--theam-color);
     color: white;
     border: 1px solid var(--theam-color);
