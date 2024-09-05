@@ -17,7 +17,7 @@
   --background-color: #f0f0f0; 
   --border-color: #d4d2d2; 
   --input-border-color: #e0e0e0; 
-
+  --box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
   --font-size:0.9vw;
   --headerFont-size:0.8vw;
   --inner-border-color:  #508CED;

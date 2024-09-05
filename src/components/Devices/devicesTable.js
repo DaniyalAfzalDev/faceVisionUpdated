@@ -270,7 +270,7 @@ const DeviceTable = ({ data, setData }) => {
                     </button>
                 </div>
             )}
-
+<div className="departments-table">
             <table className='device-table' {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -294,7 +294,7 @@ const DeviceTable = ({ data, setData }) => {
                     })}
                 </tbody>
             </table>
-
+            </div>
             <ReactPaginate
                 previousLabel={'previous'}
                 nextLabel={'next'}
