@@ -1,11 +1,11 @@
 import React from 'react'
 
-const shiftSettings = () => {
+const ShiftSettings = () => {
   return (
     <div>
-      
+      <h2>ShiftSettings</h2>
     </div>
   )
 }
 
-export default shiftSettings
+export default ShiftSettings

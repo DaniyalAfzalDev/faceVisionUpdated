@@ -1,11 +1,11 @@
 import React from 'react'
 
-const overtimeSettings = () => {
+const OvertimeSettings = () => {
   return (
     <div>
-      
+      <h2>OvertimeSettings</h2>
     </div>
   )
 }
 
-export default overtimeSettings
+export default OvertimeSettings

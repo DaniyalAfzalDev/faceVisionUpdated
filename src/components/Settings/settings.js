@@ -1,41 +1,41 @@
 import React, { useState } from 'react';
 import './settings.css';
 
-// import AttendancePolicy from './Setting_Tabs/AttendancePolicy';
-// import basicSettings from './Setting_Tabs/basicSettings.js';
-// import LeaveSettings from './Setting_Tabs/leaveSettings';
-// import OvertimeSettings from './Setting_Tabs/OvertimeSettings';
-// import ShiftSettings from './Setting_Tabs/ShiftSettings'; 
+import AttendancePolicy from './Setting_Tabs/AttendancePolicy';
+import BasicSettings from './Setting_Tabs/BasicSettings';
+import LeaveSettings from './Setting_Tabs/LeaveSettings';
+import OvertimeSettings from './Setting_Tabs/OvertimeSettings';
+import ShiftSettings from './Setting_Tabs/ShiftSettings';
 
 const Settings = () => {
     const [activeTab, setActiveTab] = useState('attendance-policy');
 
     const renderTabContent = () => {
         switch (activeTab) {
-            // case 'attendance-policy':
-                // return <AttendancePolicy />;
-            // case 'basic-settings':
-            //     return <BasicSettings />;
-            // case 'leave-settings':
-            //     return <LeaveSettings />;
-            // case 'overtime-settings':
-            //     return <OvertimeSettings />;  
-            // case 'shift-settings':
-            //     return <ShiftSettings />;
-            // default:
-                // return <AttendancePolicy />;
+            case 'attendance-policy':
+                return <AttendancePolicy />;
+            case 'basic-settings':
+                return <BasicSettings/>;
+            case 'leave-settings':
+                return <LeaveSettings />;
+            case 'overtime-settings':
+                return <OvertimeSettings />;  
+            case 'shift-settings':
+                return <ShiftSettings />;
+            default:
+                return <AttendancePolicy />;
         }
     };
 
     return (
         <div className="settings-page">
-            {/* <div className="tabs">
-                <button onClick={() => setActiveTab('attendance-policy')}>Attendance Policy</button>
-                <button onClick={() => setActiveTab('basic-settings')}>Basic</button>
-                <button onClick={() => setActiveTab('leave-settings')}>Leaves</button>
-                <button onClick={() => setActiveTab('overtime-settings')}>Overtime</button>
-                <button onClick={() => setActiveTab('shift-settings')}>Shift</button>
-            </div> */}
+            <div className="tabs">
+                <button className={`${activeTab === 'attendance-policy' ? 'active' : ''}`} onClick={() => setActiveTab('attendance-policy')}>Attendance Policy</button>
+                <button className={`${activeTab === 'basic-settings' ? 'active' : ''}`} onClick={() => setActiveTab('basic-settings')}>Basic Settings</button>
+                <button className={`${activeTab === 'leave-settings' ? 'active' : ''}`} onClick={() => setActiveTab('leave-settings')}>Leaves Settings</button>
+                <button className={`${activeTab === 'overtime-settings' ? 'active' : ''}`} onClick={() => setActiveTab('overtime-settings')}>Overtime Settings</button>
+                <button className={`${activeTab === 'shift-settings' ? 'active' : ''}`} onClick={() => setActiveTab('shift-settings')}>Shift Settings</button>
+            </div>
             <div className="tab-content">
                 {renderTabContent()}
             </div>

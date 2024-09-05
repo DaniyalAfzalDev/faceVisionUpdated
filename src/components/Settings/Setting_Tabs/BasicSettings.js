@@ -1,11 +1,11 @@
 import React from 'react'
 
-const basicSettings = () => {
+const BasicSettings = () => {
   return (
     <div>
-      
+      <h2>BasicSettings</h2>
     </div>
   )
 }
 
-export default basicSettings
+export default BasicSettings

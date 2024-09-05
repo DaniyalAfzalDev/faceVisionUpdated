@@ -1,27 +1,35 @@
 .settings-page {
-    display: flex;
   }
   
   .tabs {
-    width: 200px;
-    border-right: 1px solid #ddd;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
   }
   
   .tabs button {
-    display: block;
-    width: 100%;
+    width: 10%;
     padding: 10px;
     border: none;
-    background: #f0f0f0;
+    border-radius: 20px;
+    background: white;
     cursor: pointer;
+    font-weight: 700;
+    color: grey;
+    transition: 0.3s ease;
   }
-  
-  .tabs button.active {
-    background: #ddd;
+  .tabs button:hover, .tabs button.active{
+    background-color: var(--hover-color);
+    color: var(--hoverText-color);
+    transition: 0.3s ease;
   }
+
+
   
   .tab-content {
-    flex: 1;
     padding: 20px;
   }
   
