@@ -1,0 +1,35 @@
+.settings-page {
+  }
+  
+  .tabs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .tabs button {
+    width: 10%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-weight: 700;
+    color: grey;
+    transition: 0.3s ease;
+  }
+  .tabs button:hover, .tabs button.active{
+    background-color: var(--hover-color);
+    color: var(--hoverText-color);
+    transition: 0.3s ease;
+  }
+
+
+  
+  .tab-content {
+    padding: 20px;
+  }
+  

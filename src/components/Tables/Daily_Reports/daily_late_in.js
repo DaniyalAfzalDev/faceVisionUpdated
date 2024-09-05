@@ -1,43 +1,58 @@
-import React from "react";
-import "./dashboard_table.css"; // Import the CSS file for styling
+import React, { useEffect } from "react";import '../Dashboard_Table/dashboard_table.css';
 
-const Table = () => {
+const Daily_Late_In_Report = ({searchQuery, sendDataToParent  }) => {
     const data = [
-        { advertiser: "HBO", date: "12 / 04 / 2022 08:25", owner: "Camila Rios", channel: "bt.dk", status: "Pending", commission: "34,55 USD" },
-        { advertiser: "Lirum Larum Leg", date: "16 / 04 / 2022 15:20", owner: "Diana Smith", channel: "Berlinske.dk", status: "Pending", commission: "18,42 USD" },
-        { advertiser: "Kop & Kande", date: "17 / 04 / 2022 16:45", owner: "Wade Warren", channel: "Berlinske.dk", status: "Paid", commission: "21,55 USD" },
-        { advertiser: "Temashop", date: "20 / 04 / 2022 05:35", owner: "Guy Hawkins", channel: "bt.dk", status: "Paid", commission: "42,19 USD" },
+        { employeeId: "E001", employeeName: "Camila Rios", date: "2024-09-01", time: "09:15 AM", status: "Late" },
+        { employeeId: "E002", employeeName: "Diana Smith", date: "2024-09-01", time: "09:10 AM", status: "On Time" },
+        { employeeId: "E003", employeeName: "Wade Warren", date: "2024-09-01", time: "09:25 AM", status: "Late" },
+        { employeeId: "E004", employeeName: "Guy Hawkins", date: "2024-09-01", time: "09:05 AM", status: "On Time" },
+        { employeeId: "E005", employeeName: "Emily Davis", date: "2024-09-01", time: "09:30 AM", status: "Late" },
+        // Add more rows as needed
     ];
+
+    const filteredData = data.filter(row =>
+        row.employeeId.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.employeeName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.date.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.time.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.status.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    // Send filtered data to parent
+    useEffect(() => {
+        sendDataToParent(filteredData);
+    }, [filteredData, sendDataToParent]);
 
     return (
         <div className="table-container">
-            <h3>Latest Conversions <span className="live-data">Live data</span></h3>
+            <h3>Daily Late In Report</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Advertiser</th>
+                        <th>Serial No</th>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
                         <th>Date</th>
-                        <th>Owner</th>
-                        <th>Channel</th>
+                        <th>Time</th>
                         <th>Status</th>
-                        <th>Commission</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((row, index) => (
+                    {filteredData.map((row, index) => (
                         <tr key={index}>
-                            <td>{row.advertiser}</td>
+                            <td>{index + 1}</td>
+                            <td>{row.employeeId}</td>
+                            <td>{row.employeeName}</td>
                             <td>{row.date}</td>
-                            <td>{row.owner}</td>
-                            <td>{row.channel}</td>
+                            <td>{row.time}</td>
                             <td><span className={row.status.toLowerCase()}>{row.status}</span></td>
-                            <td>{row.commission}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
         </div>
     );
+
 };
 
-export default Table;
+export default Daily_Late_In_Report;

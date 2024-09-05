@@ -1,37 +1,61 @@
-import React from "react";
-import "./dashboard_table.css"; // Import the CSS file for styling
+import React, { useEffect } from "react";
+import '../Dashboard_Table/dashboard_table.css';
 
-const Table = () => {
+
+const Daily_Overtime_Report = ({searchQuery, sendDataToParent  }) => {
     const data = [
-        { advertiser: "HBO", date: "12 / 04 / 2022 08:25", owner: "Camila Rios", channel: "bt.dk", status: "Pending", commission: "34,55 USD" },
-        { advertiser: "Lirum Larum Leg", date: "16 / 04 / 2022 15:20", owner: "Diana Smith", channel: "Berlinske.dk", status: "Pending", commission: "18,42 USD" },
-        { advertiser: "Kop & Kande", date: "17 / 04 / 2022 16:45", owner: "Wade Warren", channel: "Berlinske.dk", status: "Paid", commission: "21,55 USD" },
-        { advertiser: "Temashop", date: "20 / 04 / 2022 05:35", owner: "Guy Hawkins", channel: "bt.dk", status: "Paid", commission: "42,19 USD" },
+        { employeeId: "E001", employeeName: "Camila Rios", overtimeHours: "2" },
+        { employeeId: "E002", employeeName: "Diana Smith", overtimeHours: "1.5" },
+        { employeeId: "E003", employeeName: "Wade Warren", overtimeHours: "3" },
+        { employeeId: "E004", employeeName: "Guy Hawkins", overtimeHours: "2.5" },
+        { employeeId: "E005", employeeName: "Emily Davis", overtimeHours: "2" },
+        { employeeId: "E006", employeeName: "Michael Brown", overtimeHours: "4" },
+        { employeeId: "E007", employeeName: "Jessica White", overtimeHours: "1" },
+        { employeeId: "E008", employeeName: "David Johnson", overtimeHours: "2.5" },
+        { employeeId: "E009", employeeName: "Laura Martinez", overtimeHours: "1.75" },
+        { employeeId: "E010", employeeName: "James Lee", overtimeHours: "3" },
+        { employeeId: "E011", employeeName: "Anna Wilson", overtimeHours: "2" },
+        { employeeId: "E012", employeeName: "John Scott", overtimeHours: "2.5" },
+        { employeeId: "E013", employeeName: "Olivia Taylor", overtimeHours: "1.5" },
+        { employeeId: "E014", employeeName: "Chris Anderson", overtimeHours: "3.5" },
+        { employeeId: "E015", employeeName: "Sophia Harris", overtimeHours: "2" },
+        { employeeId: "E016", employeeName: "Matthew Clark", overtimeHours: "2.25" },
+        { employeeId: "E017", employeeName: "Charlotte Lewis", overtimeHours: "1.5" },
+        { employeeId: "E018", employeeName: "Ethan Walker", overtimeHours: "3" },
+        { employeeId: "E019", employeeName: "Ava Young", overtimeHours: "2.75" },
+        { employeeId: "E020", employeeName: "Daniel King", overtimeHours: "2" },
     ];
+
+    const filteredData = data.filter(row =>
+        row.employeeId.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.employeeName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        row.overtimeHours.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    // Send filtered data to parent
+    useEffect(() => {
+        sendDataToParent(filteredData);
+    }, [filteredData, sendDataToParent]);
 
     return (
         <div className="table-container">
-            <h3>Latest Conversions <span className="live-data">Live data</span></h3>
+            <h3>Daily Overtime Report</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Advertiser</th>
-                        <th>Date</th>
-                        <th>Owner</th>
-                        <th>Channel</th>
-                        <th>Status</th>
-                        <th>Commission</th>
+                        <th>Serial No</th>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Overtime Hours</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((row, index) => (
+                    {filteredData.map((row, index) => (
                         <tr key={index}>
-                            <td>{row.advertiser}</td>
-                            <td>{row.date}</td>
-                            <td>{row.owner}</td>
-                            <td>{row.channel}</td>
-                            <td><span className={row.status.toLowerCase()}>{row.status}</span></td>
-                            <td>{row.commission}</td>
+                            <td>{index + 1}</td>
+                            <td>{row.employeeId}</td>
+                            <td>{row.employeeName}</td>
+                            <td>{row.overtimeHours}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -40,4 +64,4 @@ const Table = () => {
     );
 };
 
-export default Table;
+export default Daily_Overtime_Report;

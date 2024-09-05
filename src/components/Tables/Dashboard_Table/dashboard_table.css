@@ -22,12 +22,19 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
-
+table thead{
+    position: sticky;
+    top: 0;
+    background-color: var(--table-header-color); /* Adjust background color as needed */
+    z-index: 1; 
+}
 table thead th {
-    background-color: #f5f5f5;
+    background-color: var(--table-header-color);
+    color: white;
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border: 1px solid #ddd;
+    border-collapse: separate;
 }
 
 table tbody td {
