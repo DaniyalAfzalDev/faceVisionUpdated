@@ -22,7 +22,6 @@ import Dashboard from '../Dashboard/dashboard';
 
 const Home = () => {
     const [selectedMenu, setSelectedMenu] = useState('Dashboard');  // Default to an empty string or a specific page
-
     const handleMenuChange = (menu) => {
         setSelectedMenu(menu);
     };
