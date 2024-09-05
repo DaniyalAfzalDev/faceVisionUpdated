@@ -173,7 +173,7 @@ const VisitorTable = ({ data, setData, activeTab, setActiveTab }) => {
                     <FaPlus className="add-icon" /> Add New Visitor
                 </button>
             </div>
-           
+            <div className="departments-table">
             <table {...getTableProps()} className="table">
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -197,7 +197,7 @@ const VisitorTable = ({ data, setData, activeTab, setActiveTab }) => {
                     })}
                 </tbody>
             </table>
-
+</div>
             <div className="pagination">
                 <ReactPaginate
                     previousLabel={'Previous'}
