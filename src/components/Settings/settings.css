@@ -18,13 +18,14 @@
     color: grey;
     transition: 0.3s ease;
   }
-  .tabs button:hover, .tabs button.active{
+  .tabs button:hover{
     background-color: var(--hover-color);
     color: var(--hoverText-color);
     transition: 0.3s ease;
   }
-  .tabs button:hover{
-    padding: 20px 0px;
+  .tabs button.active{
+    background-color: var(--hoverText-color);
+    color: #fff;
   }
 
 

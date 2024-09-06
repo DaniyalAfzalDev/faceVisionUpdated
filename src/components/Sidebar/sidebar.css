@@ -1,3 +1,8 @@
+.logo{
+    height: 7vh;
+    padding: 4%;
+    text-align: start;
+}
 .sidebar {
     width: 14%;
     background-color: #FFFFFF;

@@ -4,13 +4,13 @@
   --sidebar-color:#FFFFFF;
   --app-color:  #F7F8FA;
   --hover-color: #EDF5FC;
-  --hoverText-color: #508CED;
-  --theam-color: #508CED;
-  --after-border-radius: #508CED;
+  --hoverText-color: #7341DA;
+  --theam-color: #7341DA;
+  --after-border-radius: #7341DA;
   --button-color:#EDF5FC;
   --success-button-color: #67b8b1;
   --fail-button-color:#db7b55;
-  --button-hover-color: #94b8f3;
+  --button-hover-color: #7670eb;
   --table-header-color: #dbdbdb;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --text-color: #4e4e4e;
@@ -20,7 +20,7 @@
   --box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
   --font-size:0.9vw;
   --headerFont-size:0.8vw;
-  --inner-border-color:  #508CED;
+  --inner-border-color:  #7341DA;
   --pagination-hover-color:black
   --timing: 0.3s;
   --width-of-input: 300px;
@@ -29,6 +29,7 @@
   --input-bg: #fff;
   --border-radius: 30px;
   --after-border-radius: 1px;
+  /* Old Color #508CED */
 }
 
 .App {
