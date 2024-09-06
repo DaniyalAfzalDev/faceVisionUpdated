@@ -214,7 +214,7 @@ input:not(:placeholder-shown)~.reset {
     border-collapse: collapse;
     margin-top: 20px;
     font-size: 14px;
-    font-family: 'Arial', sans-serif;
+    /* font-family: 'Arial', sans-serif; */
     background-color: white;
 }
  .table td {
@@ -234,9 +234,9 @@ input:not(:placeholder-shown)~.reset {
     font-size: 0.7vw;
 }
 
-.table tr:nth-child(even) {
+/* .table tr:nth-child(even) {
     background-color: #f3f4f6;
-}
+} */
 .departments-table{
     padding: 1%;
     background-color: white;
