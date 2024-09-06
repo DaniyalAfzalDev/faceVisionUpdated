@@ -19,7 +19,7 @@ import Resign from '../Enrollment/Resign/resign';
 import EmployeeProfile from '../Payroll/Employee_Profile/employee_profile'
 import PayRollLog from '../Payroll/Payroll_Logs/payroll_log'
 import Dashboard from '../Dashboard/dashboard';
-
+import Profile from '../Profile/profile';
 const Home = () => {
     const [selectedMenu, setSelectedMenu] = useState('Dashboard');  // Default to an empty string or a specific page
     const handleMenuChange = (menu) => {
@@ -63,6 +63,8 @@ const Home = () => {
                 return <Blocklist />;
             case 'Settings':
                 return <Settings />;
+            case 'Profile':
+                return <Profile />;
             default:
                 return <p>Select a menu item from the sidebar to see the content.</p>;
         }

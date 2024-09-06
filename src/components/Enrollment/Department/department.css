@@ -55,7 +55,6 @@
     color: var(--theam-color);
     cursor: pointer;
     font-weight: 600;
-
     transition: background-color 0.3s, color 0.3s;
 }
 
