@@ -33,3 +33,10 @@
     padding: 20px;
   }
   
+  .business-Hours-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    gap: 2vw;
+  }
