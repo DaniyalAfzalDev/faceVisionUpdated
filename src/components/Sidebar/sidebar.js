@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './sidebar.css';
+import Logo from '../../assets/faceVisionLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faTachometerAlt, faUserPlus, faMobileAlt, faCalendarCheck,
@@ -25,7 +26,7 @@ const Sidebar = ({ onMenuChange }) => {
 
     return (
         <div className="sidebar">
-            <h2>FaceVision.</h2>
+            <img src={Logo} alt="FaceVision Logo" className="logo" />
             <div className="sidebar-main">
                 <div className="sidebar-menu">
                     <button className={`menu-item ${activeButton === 'Dashboard' ? 'active' : ''}`} onClick={() => passValue('Dashboard')}>
@@ -94,7 +95,7 @@ const Sidebar = ({ onMenuChange }) => {
                         <FontAwesomeIcon className='sidebar-icon' icon={faUsers} /> Visitors
                     </button>
                     <button className={`menu-item ${activeButton === 'Blocklist' ? 'active' : ''}`} onClick={() => passValue('Blocklist')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faBan} /> Blocklist
+                        <FontAwesomeIcon className='sidebar-icon' icon={faBan} /> Block Employee
                     </button>
                 </div>
                 <div className="sidebar-footer">
