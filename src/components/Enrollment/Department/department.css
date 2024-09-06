@@ -227,8 +227,6 @@ input:not(:placeholder-shown)~.reset {
 }
 
 .table th {
-    text-transform: uppercase;
-    letter-spacing: 1px;
     color: #6b7280;
     font-weight: 600;
     background-color: #f9fafb;

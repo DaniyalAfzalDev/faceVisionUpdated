@@ -25,11 +25,11 @@ table {
 table thead{
     position: sticky;
     top: 0;
-    background-color: var(--table-header-color); /* Adjust background color as needed */
+    /* background-color: var(--table-header-color); */
     z-index: 1; 
 }
 table thead th {
-    background-color: var(--table-header-color);
+    /* background-color: var(--table-header-color); */
     color: white;
     padding: 10px;
     text-align: left;

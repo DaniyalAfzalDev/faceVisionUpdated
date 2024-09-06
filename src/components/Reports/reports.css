@@ -109,3 +109,15 @@
 .button-icon {
     margin-right: 8px;
 }
+.table-container thead tr th {
+    color: #6b7280;
+    background-color: #f9fafb;
+}
+.report-content{
+    padding: 1%;
+    background-color: white;
+    margin-top: 2vh;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+
+}

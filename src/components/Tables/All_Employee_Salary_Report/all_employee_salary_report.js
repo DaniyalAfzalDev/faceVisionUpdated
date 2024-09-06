@@ -44,7 +44,7 @@ const All_Employees_Salary_Report = ({searchQuery, sendDataToParent  }) => {
 
     return (
         <div className="table-container">
-            <h3>Advance Salary Reports</h3>
+            <h3>All Employee Salary Reports</h3>
             <table>
                 <thead>
                     <tr>
