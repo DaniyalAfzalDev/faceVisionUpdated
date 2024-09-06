@@ -11,7 +11,7 @@
   --success-button-color: #67b8b1;
   --fail-button-color:#db7b55;
   --button-hover-color: #94b8f3;
-  --table-header-color: #94afdb;
+  --table-header-color: #dbdbdb;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --text-color: #4e4e4e;
   --background-color: #f0f0f0; 
@@ -29,7 +29,6 @@
   --input-bg: #fff;
   --border-radius: 30px;
   --after-border-radius: 1px;
-
 }
 
 .App {
