@@ -146,7 +146,7 @@ const UserTable = ({ data, setData }) => {
     };
 
     return (
-        <div className='user-table'>
+        <div className='users-table'>
             <div className='table-header'>
                 <form className="form">
                     <button>

@@ -8,7 +8,6 @@
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    /* font-family: 'Poppins', sans-serif; */
     padding: 2% 1%;
     border-radius: 10px;
 }
@@ -22,8 +21,9 @@
 }
 
 .user-table th {
-    background-color: var(--table-header-color);
-    font-weight: bold;
+    color: #6b7280;
+    font-weight: 600;
+    background-color: #f9fafb;
     text-align: center;
 }
 
