@@ -66,8 +66,8 @@ const Advance_Salary_Reports = ({searchQuery, sendDataToParent  }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{row.employeeId}</td>
-                            <td>{row.employeeName}</td>
-                            <td>{row.amount}</td>
+                            <td className="bold-fonts">{row.employeeName}</td>
+                            <td className="bold-fonts">{row.amount}</td>
                             <td>{row.month}</td>
                             <td>{row.date}</td>
                             <td><span className={row.reason.toLowerCase()}>{row.reason}</span></td>

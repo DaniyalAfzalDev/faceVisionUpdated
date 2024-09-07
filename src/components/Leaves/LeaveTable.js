@@ -41,6 +41,9 @@ const LeaveTable = ({ data, setData }) => {
       {
         Header: "Employee Name",
         accessor: "employeeName",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Leave Type",

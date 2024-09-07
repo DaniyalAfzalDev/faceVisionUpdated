@@ -60,11 +60,11 @@ const Daily_Working_Hours_Report = ({searchQuery, sendDataToParent  }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{row.employeeId}</td>
-                            <td>{row.employeeName}</td>
+                            <td className="bold-fonts">{row.employeeName}</td>
                             <td>{row.firstCheckIn}</td>
                             <td>{row.lastCheckOut}</td>
-                            <td>{row.hours}</td>
-                            <td>{row.date}</td>
+                            <td className="bold-fonts">{row.hours}</td>
+                            <td className="bold-fonts">{row.date}</td>
                         </tr>
                     ))}
                 </tbody>

@@ -25,6 +25,9 @@ const ResignTable = ({ data, setData }) => {
       {
         Header: "Employee Name",
         accessor: "employeeName",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Date",
@@ -33,6 +36,9 @@ const ResignTable = ({ data, setData }) => {
       {
         Header: "Reason",
         accessor: "reason",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Action",

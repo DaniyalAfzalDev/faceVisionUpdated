@@ -54,8 +54,8 @@ const Daily_Overtime_Report = ({searchQuery, sendDataToParent  }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{row.employeeId}</td>
-                            <td>{row.employeeName}</td>
-                            <td>{row.overtimeHours}</td>
+                            <td  className="bold-fonts">{row.employeeName}</td>
+                            <td className="bold-fonts">{row.overtimeHours}</td>
                         </tr>
                     ))}
                 </tbody>
