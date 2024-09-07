@@ -25,6 +25,9 @@ const TableComponent = ({ data, setData }) => {
       {
         Header: "Department Name",
         accessor: "departmentName",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Superior",

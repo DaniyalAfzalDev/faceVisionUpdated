@@ -36,6 +36,9 @@ const VisitorTable = ({ data, setData, activeTab, setActiveTab }) => {
             {
                 Header: 'Visitor Name',
                 accessor: 'visitorName',
+                Cell: ({ value }) => (
+                    <span className='bold-fonts'>{value}</span>
+                  ),
             },
             {
                 Header: 'Crft No',
@@ -60,6 +63,9 @@ const VisitorTable = ({ data, setData, activeTab, setActiveTab }) => {
             {
                 Header: 'Visiting Department',
                 accessor: 'visitingDepartment',
+                Cell: ({ value }) => (
+                    <span className='bold-fonts'>{value}</span>
+                  ),
             },
             {
                 Header: 'Host',
@@ -68,6 +74,9 @@ const VisitorTable = ({ data, setData, activeTab, setActiveTab }) => {
             {
                 Header: 'Visiting Reason',
                 accessor: 'visitingReason',
+                Cell: ({ value }) => (
+                    <span className='bold-fonts'>{value}</span>
+                  ),
             },
             {
                 Header: 'Carrying Goods',

@@ -28,6 +28,9 @@ const DesignationTable = ({ data, setData }) => {
       {
         Header: "Designation Name",
         accessor: "designationName",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Action",

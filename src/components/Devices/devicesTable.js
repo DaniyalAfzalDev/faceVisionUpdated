@@ -33,10 +33,16 @@ const DeviceTable = ({ data, setData }) => {
       {
         Header: "Device Name",
         accessor: "deviceName",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Device IP",
         accessor: "deviceIP",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Device Port",

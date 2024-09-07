@@ -55,9 +55,9 @@ const Leave_Summary_Report = ({searchQuery, sendDataToParent  }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{row.employeeId}</td>
-                            <td>{row.employeeName}</td>
+                            <td className="bold-fonts">{row.employeeName}</td>
                             <td>{row.date}</td>
-                            <td>{row.leave}</td>
+                            <td className="bold-fonts">{row.leave}</td>
                         </tr>
                     ))}
                 </tbody>

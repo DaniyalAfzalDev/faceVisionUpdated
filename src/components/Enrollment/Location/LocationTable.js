@@ -31,6 +31,9 @@ const LocationTable = ({ data, setData }) => {
       {
         Header: "Location Name",
         accessor: "locationName",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Device Quantity",

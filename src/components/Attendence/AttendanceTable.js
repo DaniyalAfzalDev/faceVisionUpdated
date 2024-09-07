@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { useTable, usePagination } from "react-table";
 import ReactPaginate from "react-paginate";
+import './attendence.css'
 
 const AttendanceTable = ({ data }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,6 +25,9 @@ const AttendanceTable = ({ data }) => {
       {
         Header: "Employee Name",
         accessor: "Employee Name",
+        Cell: ({ value }) => (
+          <span className='bold-fonts'>{value}</span>
+        ),
       },
       {
         Header: "Time",
@@ -32,6 +36,21 @@ const AttendanceTable = ({ data }) => {
       {
         Header: "Status",
         accessor: "Status",
+        Cell: ({ value }) => (
+          <span
+          className={`status ${
+            value === "Present"
+              ? "presentStatus"
+              : value === "Absent"
+              ? "absentStatus"
+              : value === "Late"
+              ? "lateStatus"
+              : 'none'
+          }`}
+          >
+            {value}
+          </span>
+        ),
       },
       {
         Header: "Date",

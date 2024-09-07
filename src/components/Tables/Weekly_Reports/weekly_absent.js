@@ -39,8 +39,8 @@ const Weekly_Absent_Report = ({searchQuery, sendDataToParent  }) => {
                         <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{row.employeeId}</td>
-                            <td>{row.employeeName}</td>
-                            <td>{row.date}</td>
+                            <td className="bold-fonts">{row.employeeName}</td>
+                            <td className="bold-fonts">{row.date}</td>
                         </tr>
                     ))}
                 </tbody>
