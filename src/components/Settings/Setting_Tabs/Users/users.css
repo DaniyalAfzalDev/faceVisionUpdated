@@ -1,5 +1,5 @@
 .table-container {
-    width: 100%;
+    width: 95%;
     padding: 20px;
 }
 
@@ -165,6 +165,7 @@ input:checked + .slider:before {
 .submit-button {
     color: white;
     margin-right: 10px;
+    background-color: var(--success-button-color);
 }
 
 .cancel-button {

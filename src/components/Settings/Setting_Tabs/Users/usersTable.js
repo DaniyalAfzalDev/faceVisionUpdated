@@ -168,13 +168,13 @@ const UserTable = ({ data, setData }) => {
                         </svg>
                     </button>
                 </form>
-                <button className="add-button" onClick={handleAdd}>
+                <button className="addLeave" onClick={handleAdd}>
                     <FaPlus className="add-icon" /> Add New User
                 </button>
             </div>
             <div className='showSlider-users'>
                 {showAddForm && (
-                    <div className="add-user-form">
+                    <div className="add-leave-form">
                         <h3>Add New User</h3>
                         <input
                             type="text"
