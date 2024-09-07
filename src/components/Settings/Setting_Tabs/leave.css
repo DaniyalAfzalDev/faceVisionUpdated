@@ -71,3 +71,51 @@
     flex-direction: row;
     gap: 3vw;
 }
+.export-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--success-button-color);
+    border: 5px solid var(--success-button-color);
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.1% 0.6%;
+    cursor: pointer;
+    font-size: 0.8vw;
+    transition: background-color 0.3s;
+    height: 4vh;
+    font-style: normal;
+    width:9vw;
+}
+.export-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    align-items: center;
+    justify-content: end;
+    padding: 1%;
+}
+.export-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+.payroll-header{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    justify-content: space-between;
+    align-items: center;
+}
+.payroll-header-search{
+    width: 40%;
+}
+.payroll-header-search input{
+    width: 30%;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}

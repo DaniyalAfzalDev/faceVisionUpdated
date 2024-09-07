@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { CSVLink } from "react-csv";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 import "../../Settings/Setting_Tabs/leave.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileCsv, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 const EmplyeeProfile = () => {
     const [data, setData] = useState([
-        { 
-            id: 1, employeeId: "E001", name: "John Doe", basicSalary: "$3000", allottedHours: "160", workingHours: "170", overtimeHours: "10", workingDays: "22", bankName: "Bank A", extraFund: "$200", advanceSalary: "$100", accountNo: "1234567890", pay: "$3300" 
+        {
+            id: 1, employeeId: "E001", name: "John Doe", basicSalary: "$3000", allottedHours: "160", workingHours: "170", overtimeHours: "10", workingDays: "22", bankName: "Bank A", extraFund: "$200", advanceSalary: "$100", accountNo: "1234567890", pay: "$3300"
         },
-        { 
-            id: 2, employeeId: "E002", name: "Jane Smith", basicSalary: "$3200", allottedHours: "160", workingHours: "160", overtimeHours: "0", workingDays: "22", bankName: "Bank B", extraFund: "$150", advanceSalary: "$50", accountNo: "0987654321", pay: "$3400" 
+        {
+            id: 2, employeeId: "E002", name: "Jane Smith", basicSalary: "$3200", allottedHours: "160", workingHours: "160", overtimeHours: "0", workingDays: "22", bankName: "Bank B", extraFund: "$150", advanceSalary: "$50", accountNo: "0987654321", pay: "$3400"
         },
     ]);
     const [searchQuery, setSearchQuery] = useState(""); // State for search query
@@ -19,6 +24,17 @@ const EmplyeeProfile = () => {
     const filteredData = data.filter((item) =>
         item.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    const exportToPDF = () => {
+        const doc = new jsPDF();
+        doc.autoTable({
+            head: [['Serial No', 'Employee ID', 'Name', 'Basic Salary', 'Allotted Working Hours', 'Working Hours', 'Overtime Hours', 'Working Days', 'Bank Name', 'Extra Fund', 'Advance Salary', 'Account No', 'Pay']],
+            body: filteredData.map((item, index) => [
+                index + 1, item.employeeId, item.name, item.basicSalary, item.allottedHours, item.workingHours, item.overtimeHours, item.workingDays, item.bankName, item.extraFund, item.advanceSalary, item.accountNo, item.pay
+            ]),
+        });
+        doc.save('employee-profile.pdf');
+    };
 
     return (
         <div className="table-container">
@@ -67,9 +83,26 @@ const EmplyeeProfile = () => {
                         </svg>
                     </button>
                 </form>
+                <div className="export-buttons">
+                    <button className="export-btn">
+                        <CSVLink data={filteredData} filename="employee-profile.csv">
+                        <FontAwesomeIcon icon={faFileCsv} className="button-icon" />
+
+                            Export to CSV
+                        </CSVLink>
+                    </button>
+                    <button className="export-btn" onClick={exportToPDF}>
+                    <FontAwesomeIcon icon={faFilePdf} className="button-icon" />
+                        Export to PDF
+                    </button>
+                </div>
             </div>
 
+
+
             <div className="leave-table-outer">
+
+
                 <table className="leave-table">
                     <thead>
                         <tr>
