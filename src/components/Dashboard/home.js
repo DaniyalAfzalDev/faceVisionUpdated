@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../Sidebar/sidebar';
 import Navbar from '../Navbar/navbar';
 import './dashboard.css';
@@ -7,20 +7,39 @@ import Designation from '../Enrollment/Designation/designation';
 import Location from '../Enrollment/Location/location';
 import Employee from '../Enrollment/Employees/employees';
 import Device from '../Devices/devices';
-import Attendance from '../Attendence/attendence'; 
-import Leaves from '../Leaves/leaves'; 
-import ShiftManagement from '../Shift_Managment/shift_managment'; 
-import Bonuses from '../Payroll/Bouneses/bouneses'; 
-import Reports from '../Reports/reports'; 
-import Visitors from '../Visitors/visitors'; 
-import Blocklist from '../Blocklist/blocklist'; 
-import Settings from '../Settings/settings'; 
+import Attendance from '../Attendence/attendence';
+import Leaves from '../Leaves/leaves';
+import ShiftManagement from '../Shift_Managment/shift_managment';
+import Bonuses from '../Payroll/Bouneses/bouneses';
+import Reports from '../Reports/reports';
+import Visitors from '../Visitors/visitors';
+import Blocklist from '../Blocklist/blocklist';
+import Settings from '../Settings/settings';
 import Resign from '../Enrollment/Resign/resign';
 import EmployeeProfile from '../Payroll/Employee_Profile/employee_profile'
 import PayRollLog from '../Payroll/Payroll_Logs/payroll_log'
 import Dashboard from '../Dashboard/dashboard';
 import Profile from '../Profile/profile';
+
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+
 const Home = () => {
+
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            navigate('/');
+        }
+    }, [isAuthenticated, navigate]);
+
+    if (!isAuthenticated) {
+    }
+
+
     const [selectedMenu, setSelectedMenu] = useState('Dashboard');  // Default to an empty string or a specific page
     const handleMenuChange = (menu) => {
         setSelectedMenu(menu);
