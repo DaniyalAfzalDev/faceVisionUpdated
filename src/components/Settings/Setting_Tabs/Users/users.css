@@ -240,3 +240,4 @@ input:checked + .slider:before {
     background-color: var(--theam-color);
     color: white;
 }
+

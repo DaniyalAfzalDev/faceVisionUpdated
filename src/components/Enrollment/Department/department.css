@@ -226,9 +226,9 @@ input:not(:placeholder-shown)~.reset {
 }
 
 .table th {
-    color: #6b7280;
+    color:var(--text-color);
     font-weight: 600;
-    background-color: #f9fafb;
+    background-color:var(--table-header-color);
     text-align: center;
     font-size: 0.7vw;
 }

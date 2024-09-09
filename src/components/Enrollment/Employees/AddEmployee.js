@@ -6,11 +6,14 @@ import { FaArrowLeft } from "react-icons/fa";
 
 const AddEmployee = ({ setData, setActiveTab, data }) => {
   const [selectedPage, setSelectedPage] = useState("");
+
   const [newEmployee, setNewEmployee] = useState({
     employeeId: "",
-    employeeName: "",
+    firstName:"",
+    lastName:"",
     email: "",
     contactNo: "",
+    picture: "",
     enrollSite: "",
     gender: "",
     joiningDate: "",
@@ -35,7 +38,9 @@ const AddEmployee = ({ setData, setActiveTab, data }) => {
     "Sales",
     "Admin",
   ]);
-
+  const submitForm = () => {
+    console.log(newEmployee);
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     const nextSerialNo = data.length + 1;
@@ -64,6 +69,15 @@ const AddEmployee = ({ setData, setActiveTab, data }) => {
     const { name, value } = e.target;
     setNewEmployee((prevData) => ({ ...prevData, [name]: value }));
   };
+
+  const handlePictureChange = (event) => {
+    const file = event.target.files[0]; // Get the selected file
+    if (file) {
+      // Handle the file upload logic (e.g., preview the image, upload to a server, etc.)
+      console.log(file);
+    }
+  };
+
   return (
     <div className="add-employee-main">
       <div>
@@ -89,7 +103,7 @@ const AddEmployee = ({ setData, setActiveTab, data }) => {
                     name="employeeId"
                     placeholder="Enter Employee ID"
                     value={newEmployee.employeeId}
-                    onChange={handleChange}
+                    onChange={(e) => { setNewEmployee(e.target.value) }}
                     required
                   />
 
@@ -130,6 +144,14 @@ const AddEmployee = ({ setData, setActiveTab, data }) => {
                     placeholder="Enter Contact Number"
                     value={newEmployee.contactNo}
                     onChange={handleChange}
+                    required
+                  />
+                  <label>Picture</label>
+                  <input
+                    type="file"
+                    name="picture"
+                    accept="image/*"
+                    onChange={handlePictureChange}
                     required
                   />
 
@@ -288,7 +310,7 @@ const AddEmployee = ({ setData, setActiveTab, data }) => {
                 </div>
               </div>
               <div className="employee-buttons">
-                <button className="add" type="submit">
+                <button className="add" type="submit" onClick={submitForm}>
                   Add Employee
                 </button>
                 <button

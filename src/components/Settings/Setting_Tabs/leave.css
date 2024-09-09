@@ -119,3 +119,11 @@
     border-radius: 4px;
     font-size: 14px;
 }
+.item-list-Selected{
+    display: flex;
+    flex-direction: row;
+}
+.item-list-Selected .items{
+    display: flex;
+    flex-direction: column;
+}
