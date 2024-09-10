@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './sidebar.css';
-import Logo from '../../assets/faceVisionLogo.png'
+import Logo from '../../assets/faceVisionLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faTachometerAlt, faUserPlus, faMobileAlt, faCalendarCheck,
@@ -10,18 +10,40 @@ import {
     faChevronUp
 } from '@fortawesome/free-solid-svg-icons';
 
+const menuItems = [
+    { label: 'Dashboard', icon: faTachometerAlt },
+    { label: 'Enrollment', icon: faUserPlus, submenu: [
+        { label: 'Department', icon: faBuilding },
+        { label: 'Designation', icon: faTag },
+        { label: 'Location', icon: faMapMarkerAlt },
+        { label: 'Employee', icon: faIdBadge },
+        { label: 'Resign', icon: faSignOutAlt }
+    ]},
+    { label: 'Devices', icon: faMobileAlt },
+    { label: 'Attendance', icon: faCalendarCheck },
+    { label: 'Leaves', icon: faCalendarAlt },
+    { label: 'Shift Management', icon: faCogs },
+    { label: 'Payroll', icon: faMoneyCheckAlt, submenu: [
+        { label: 'Employee Profile', icon: faUser },
+        { label: 'Payroll Log', icon: faCalendarAlt },
+        { label: 'Bonuses', icon: faMoneyCheckAlt }
+    ]},
+    { label: 'Reports', icon: faChartBar },
+    { label: 'Visitors', icon: faUsers },
+    { label: 'Block Employee', icon: faBan }
+];
+
 const Sidebar = ({ onMenuChange }) => {
     const [activeMenu, setActiveMenu] = useState('');
-    const [activeButton, setActiveButton] = useState('Dashboard'); // State for active button
+    const [activeButton, setActiveButton] = useState('Dashboard');
 
     const handleMenuClick = (menu) => {
         setActiveMenu(menu === activeMenu ? '' : menu);
-        setActiveButton(menu); // Set the clicked button as active
     };
 
-    const passValue = (menu) => {
+    const handleButtonClick = (menu) => {
         onMenuChange(menu);
-        setActiveButton(menu); // Set the clicked button as active
+        setActiveButton(menu);
     };
 
     return (
@@ -29,80 +51,40 @@ const Sidebar = ({ onMenuChange }) => {
             <img src={Logo} alt="FaceVision Logo" className="logo" />
             <div className="sidebar-main">
                 <div className="sidebar-menu">
-                    <button className={`menu-item ${activeButton === 'Dashboard' ? 'active' : ''}`} onClick={() => passValue('Dashboard')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faTachometerAlt} /> Dashboard
-                    </button>
-                    <button className={`menu-item ${activeButton === 'Enrollment' ? 'active' : ''}`} onClick={() => handleMenuClick('Enrollment')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faUserPlus} /> Enrollment
-                        <FontAwesomeIcon className='sidebar-icon arrow-icon'
-                            icon={activeMenu === 'Enrollment' ? faChevronUp : faChevronDown}
-                        />
-                    </button>
-                    {activeMenu === 'Enrollment' && (
-                        <ul className="submenu">
-                            <button className={`submenu-item ${activeButton === 'Department' ? 'active' : ''}`} onClick={() => passValue('Department')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faBuilding} /> Department
+                    {menuItems.map(item => (
+                        <React.Fragment key={item.label}>
+                            <button 
+                                className={`menu-item ${activeButton === item.label ? 'active' : ''}`} 
+                                onClick={() => item.submenu ? handleMenuClick(item.label) : handleButtonClick(item.label)}
+                            >
+                                <FontAwesomeIcon className='sidebar-icon' icon={item.icon} /> {item.label}
+                                {item.submenu && (
+                                    <FontAwesomeIcon className='sidebar-icon arrow-icon'
+                                        icon={activeMenu === item.label ? faChevronUp : faChevronDown}
+                                    />
+                                )}
                             </button>
-                            <button className={`submenu-item ${activeButton === 'Designation' ? 'active' : ''}`} onClick={() => passValue('Designation')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faTag} /> Designation
-                            </button>
-                            <button className={`submenu-item ${activeButton === 'Location' ? 'active' : ''}`} onClick={() => passValue('Location')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faMapMarkerAlt} /> Location
-                            </button>
-                            <button className={`submenu-item ${activeButton === 'Employee' ? 'active' : ''}`} onClick={() => passValue('Employee')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faIdBadge} /> Employee
-                            </button>
-                            <button className={`submenu-item ${activeButton === 'Resign' ? 'active' : ''}`} onClick={() => passValue('Resign')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faSignOutAlt} /> Resign
-                            </button>
-                        </ul>
-                    )}
-                    <button className={`menu-item ${activeButton === 'Devices' ? 'active' : ''}`} onClick={() => passValue('Devices')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faMobileAlt} /> Devices
-                    </button>
-                    <button className={`menu-item ${activeButton === 'Attendance' ? 'active' : ''}`} onClick={() => passValue('Attendance')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faCalendarCheck} /> Attendance
-                    </button>
-                    <button className={`menu-item ${activeButton === 'Leaves' ? 'active' : ''}`} onClick={() => passValue('Leaves')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faCalendarAlt} /> Leaves
-                    </button>
-                    <button className={`menu-item ${activeButton === 'ShiftManagement' ? 'active' : ''}`} onClick={() => passValue('ShiftManagement')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faCogs} /> Shift Management
-                    </button>
-                    <button className={`menu-item ${activeButton === 'Payroll' ? 'active' : ''}`} onClick={() => handleMenuClick('Payroll')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faMoneyCheckAlt} /> Payroll
-                        <FontAwesomeIcon className='sidebar-icon arrow-icon'
-                            icon={activeMenu === 'Payroll' ? faChevronUp : faChevronDown}
-                        />
-                    </button>
-                    {activeMenu === 'Payroll' && (
-                        <ul className="submenu">
-                            <button className={`submenu-item ${activeButton === 'EmployeeProfile' ? 'active' : ''}`} onClick={() => passValue('EmployeeProfile')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faUser} /> Employee Profile
-                            </button>
-                            <button className={`submenu-item ${activeButton === 'PayRollLog' ? 'active' : ''}`} onClick={() => passValue('PayRollLog')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faCalendarAlt} /> Payroll Log
-                            </button>
-                            <button className={`submenu-item ${activeButton === 'Bonuses' ? 'active' : ''}`} onClick={() => passValue('Bonuses')}>
-                                <FontAwesomeIcon className='sidebar-icon' icon={faMoneyCheckAlt} /> Bonuses
-                            </button>
-                        </ul>
-                    )}
-                    <button className={`menu-item ${activeButton === 'Reports' ? 'active' : ''}`} onClick={() => passValue('Reports')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faChartBar} /> Reports
-                    </button>
-                    <button className={`menu-item ${activeButton === 'Visitors' ? 'active' : ''}`} onClick={() => passValue('Visitors')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faUsers} /> Visitors
-                    </button>
-                    <button className={`menu-item ${activeButton === 'Blocklist' ? 'active' : ''}`} onClick={() => passValue('Blocklist')}>
-                        <FontAwesomeIcon className='sidebar-icon' icon={faBan} /> Block Employee
-                    </button>
+                            {item.submenu && activeMenu === item.label && (
+                                <ul className="submenu">
+                                    {item.submenu.map(subitem => (
+                                        <button 
+                                            key={subitem.label} 
+                                            className={`submenu-item ${activeButton === subitem.label ? 'active' : ''}`} 
+                                            onClick={() => handleButtonClick(subitem.label)}
+                                        >
+                                            <FontAwesomeIcon className='sidebar-icon' icon={subitem.icon} /> {subitem.label}
+                                        </button>
+                                    ))}
+                                </ul>
+                            )}
+                        </React.Fragment>
+                    ))}
                 </div>
                 <div className="sidebar-footer">
-                    <button className={`footer-item ${activeButton === 'Settings' ? 'active' : ''}`} onClick={() => passValue('Settings')}>
+                    <button className={`footer-item ${activeButton === 'Settings' ? 'active' : ''}`} onClick={() => handleButtonClick('Settings')}>
                         <FontAwesomeIcon icon={faCog} /> Settings
                     </button>
-                    <button style={{ borderTop: '1px solid silver', height: '5vh' }} className={`footer-item ${activeButton === 'Profile' ? 'active' : ''}`} onClick={() => passValue('Profile')}>
+                    <button className={`footer-item ${activeButton === 'Profile' ? 'active' : ''}`} style={{ borderTop: '1px solid silver', height: '5vh' }} onClick={() => handleButtonClick('Profile')}>
                         <FontAwesomeIcon icon={faUser} /> Profile
                     </button>
                 </div>
