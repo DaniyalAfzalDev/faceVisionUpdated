@@ -89,6 +89,7 @@ const UsersTable = () => {
             }
             fetchUsers();
             resetForm();
+            setSelectedItems([]);
         } catch (error) {
             console.error('Error saving user:', error);
         }
