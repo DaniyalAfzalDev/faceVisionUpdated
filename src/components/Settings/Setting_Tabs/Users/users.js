@@ -16,54 +16,31 @@ const UsersTable = () => {
         password: ""
     });
     const [searchQuery, setSearchQuery] = useState("");
-
-    // Fetch data from backend
     useEffect(() => {
         fetchUsers();
     }, []);
-
     const handleCheckboxChange = (e) => {
         const { value, checked } = e.target;
         setSelectedItems(prevItems =>
             checked ? [...prevItems, value] : prevItems.filter(item => item !== value)
         );
     };
-
     const items = [
-        "Dashboard",
-        "Enrollment",
-        "Department",
-        "Designation",
-        "Location",
-        "Employee",
-        "Resign",
-        "Devices",
-        "Attendance",
-        "Leaves",
-        "Shift Management",
-        "Payroll",
-        "Employee Profile",
-        "Payroll Log",
-        "Bonuses",
-        "Reports",
-        "Visitors",
-        "Block Employee",
-        "Settings",
-        "Profile"
+        "Dashboard", "Enrollment", "Department", "Designation", "Location",
+        "Employee", "Resign", "Devices", "Attendance", "Leaves",
+        "Shift Management", "Payroll", "Employee Profile", "Payroll Log",
+        "Bonuses", "Reports", "Visitors", "Block Employee", "Settings", "Profile"
     ];
-
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users');  // Adjust the endpoint to your API
+            const response = await axios.get('http://localhost:5000/api/users');
             setData(response.data);
         } catch (error) {
             console.error('Error fetching users:', error);
         }
     };
     const handleEdit = (id) => {
-        console.log(id)
-        setCurrentItemId(id)
-        const itemToEdit = data.find((item) => item._id === id); // Ensure `_id` is the correct field
+        const itemToEdit = data.find((item) => item._id === id);
         setFormData({
             UserId: itemToEdit.id,
             userName: itemToEdit.name,
@@ -73,26 +50,18 @@ const UsersTable = () => {
         setCurrentItemId(id);
         setFormMode("edit");
         setShowForm(true);
-
     };
-
     const handleCancel = () => {
         setShowForm(false);
     };
-
     const handleDelete = async (id) => {
         try {
-            console.log(id)
-            const deleteID = {
-                id: id
-            }
-            await axios.post(`http://localhost:5000/api/deleteUsers`, deleteID);  // Adjust endpoint
-            fetchUsers()
+            await axios.post(`http://localhost:5000/api/deleteUsers`, { id });
+            fetchUsers();
         } catch (error) {
             console.error('Error deleting user:', error);
         }
     };
-
     const handleAddNew = () => {
         setFormMode("add");
         setFormData({
@@ -102,9 +71,7 @@ const UsersTable = () => {
             password: ""
         });
         setShowForm(true);
-
     };
-
     const handleSaveItem = async () => {
         const userPayload = {
             _id: formMode === "edit" ? currentItemId : undefined,
@@ -112,9 +79,8 @@ const UsersTable = () => {
             name: formData.userName,
             email: formData.email,
             password: formData.password,
-            accessibleItems: selectedItems  
+            accessibleItems: selectedItems
         };
-    
         try {
             if (formMode === "add") {
                 await axios.post('http://localhost:5000/api/users', userPayload);
@@ -127,8 +93,6 @@ const UsersTable = () => {
             console.error('Error saving user:', error);
         }
     };
-    
-
     const resetForm = () => {
         setFormData({
             UserId: "",
@@ -140,28 +104,18 @@ const UsersTable = () => {
         setFormMode("add");
         setShowForm(false);
     };
-
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     };
-
     const filteredData = data.filter((item) =>
         (item.name ? item.name.toLowerCase() : "").includes(searchQuery.toLowerCase())
     );
-
     return (
         <div className="table-container">
             <div className="leave-header">
                 <form className="form">
                     <button>
-                        <svg
-                            width="17"
-                            height="16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            password="img"
-                            aria-labelledby="search"
-                        >
+                        <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="search">
                             <path
                                 d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
                                 stroke="currentColor"
@@ -180,19 +134,8 @@ const UsersTable = () => {
                         type="text"
                     />
                     <button className="reset" type="reset">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M6 18L18 6M6 6l12 12"
-                            ></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </form>
@@ -227,17 +170,18 @@ const UsersTable = () => {
                         value={formData.password}
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
+                    <h4>Select Accessible Items:</h4>
                     <div className="item-list-Selected">
-                        <h4>Select Accessible Items:</h4>
                         {items.map(item => (
                             <div className="items" key={item}>
-                                <label>
+                                <label className="checkbox-container">
                                     <input
                                         type="checkbox"
                                         value={item}
                                         checked={selectedItems.includes(item)}
                                         onChange={handleCheckboxChange}
                                     />
+                                    <span className="checkmark"></span>
                                     {item}
                                 </label>
                             </div>
@@ -251,8 +195,6 @@ const UsersTable = () => {
                     </button>
                 </div>
             )}
-
-
             <div className="leave-table-outer">
                 <table className="leave-table">
                     <thead>
@@ -270,7 +212,18 @@ const UsersTable = () => {
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.email}</td>
-                                <td>{item.accessibleItems}</td>
+                                <td className="accessible-items">
+                                    <td className="accessible-items">
+                                        {/* Ensure accessibleItems is an array, then map over each item */}
+                                        {Array.isArray(item.accessibleItems) ? (
+                                            item.accessibleItems.map((accessibleItem, index) => (
+                                                <span key={index}>{accessibleItem}</span>
+                                            ))
+                                        ) : (
+                                            'No accessible items'
+                                        )}
+                                    </td>
+                                </td>
                                 <td>
                                     <button className="action-button edit" onClick={() => handleEdit(item._id)}>
                                         <FontAwesomeIcon icon={faEdit} />
@@ -282,12 +235,9 @@ const UsersTable = () => {
                             </tr>
                         ))}
                     </tbody>
-
-
                 </table>
             </div>
         </div>
     );
 };
-
 export default UsersTable;

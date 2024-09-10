@@ -3,9 +3,14 @@ import { useTable, usePagination, useRowSelect } from "react-table";
 import { FaEdit, FaTrash, FaPlus, FaFileAlt } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
 import "./employees.css";
+import EmployeeReportModal from "./EmployeeReportModal";
+import Default_picture from '../../../assets/profile.jpg';
+
 
 const EmployeeTable = ({ data, setData, activeTab, setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedRow, setSelectedRow] = useState(null); 
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const [formData, setFormData] = useState({
     employeeId: null,
     employeeName: "",
@@ -18,6 +23,17 @@ const EmployeeTable = ({ data, setData, activeTab, setActiveTab }) => {
     bankName: "",
     image: "",
   });
+
+  // Handle Generate Report
+  const handleGenerateReport = (row) => {
+    setSelectedRow(row);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedRow(null);
+  };
 
   // Define employee table columns
   const columns = useMemo(
@@ -150,11 +166,6 @@ const EmployeeTable = ({ data, setData, activeTab, setActiveTab }) => {
     );
   };
 
-  // Handle Generate Report
-  const handleGenerateReport = (row) => {
-    // Add logic for generating the report for the selected employee
-    console.log("Generating report for:", row);
-  };
 
   const handleAdd = () => {
     setActiveTab("Add Employee"); // Update the activeTab state from parent
@@ -162,6 +173,11 @@ const EmployeeTable = ({ data, setData, activeTab, setActiveTab }) => {
 
   return (
     <div className="employee-table">
+      <EmployeeReportModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        rowData={selectedRow}
+      />
       <div className="table-header">
         <form className="form">
           <input

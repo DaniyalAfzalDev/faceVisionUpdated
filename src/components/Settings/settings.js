@@ -32,7 +32,7 @@ const Settings = () => {
         <div className="settings-page">
             <div className="tabs">
                 <button className={`${activeTab === 'attendance-policy' ? 'active' : ''}`} onClick={() => setActiveTab('attendance-policy')}>Attendance Policy</button>
-                <button className={`${activeTab === 'users' ? 'active' : ''}`} onClick={() => setActiveTab('users')}>Users</button>
+                <button className={`${activeTab === 'users' ? 'active' : ''}`} onClick={() => setActiveTab('users')}>Access Control</button>
                 <button className={`${activeTab === 'leave-settings' ? 'active' : ''}`} onClick={() => setActiveTab('leave-settings')}>Leaves Formula</button>
                 <button className={`${activeTab === 'overtime-settings' ? 'active' : ''}`} onClick={() => setActiveTab('overtime-settings')}>Overtime Formula</button>
                 {/* <button className={`${activeTab === 'shift-settings' ? 'active' : ''}`} onClick={() => setActiveTab('shift-settings')}>Shift Settings</button> */}
