@@ -21,8 +21,8 @@ const Settings = () => {
                 return <LeaveSettings />;
             case 'overtime-settings':
                 return <OvertimeSettings />;  
-            case 'shift-settings':
-                return <ShiftSettings />;
+            // case 'shift-settings':
+            //     return <ShiftSettings />;
             default:
                 return <AttendancePolicy />;
         }
@@ -35,7 +35,7 @@ const Settings = () => {
                 <button className={`${activeTab === 'users' ? 'active' : ''}`} onClick={() => setActiveTab('users')}>Users</button>
                 <button className={`${activeTab === 'leave-settings' ? 'active' : ''}`} onClick={() => setActiveTab('leave-settings')}>Leaves Formula</button>
                 <button className={`${activeTab === 'overtime-settings' ? 'active' : ''}`} onClick={() => setActiveTab('overtime-settings')}>Overtime Formula</button>
-                <button className={`${activeTab === 'shift-settings' ? 'active' : ''}`} onClick={() => setActiveTab('shift-settings')}>Shift Settings</button>
+                {/* <button className={`${activeTab === 'shift-settings' ? 'active' : ''}`} onClick={() => setActiveTab('shift-settings')}>Shift Settings</button> */}
             </div>
             <div className="tab-content">
                 {renderTabContent()}
