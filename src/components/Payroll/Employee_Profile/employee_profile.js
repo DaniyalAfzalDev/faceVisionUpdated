@@ -14,6 +14,24 @@ const EmplyeeProfile = () => {
         {
             id: 2, employeeId: "E002", name: "Jane Smith", basicSalary: "$3200", allottedHours: "160", workingHours: "160", overtimeHours: "0", workingDays: "22", bankName: "Bank B", extraFund: "$150", advanceSalary: "$50", accountNo: "0987654321", pay: "$3400"
         },
+        {
+            id: 1, employeeId: "E001", name: "John Doe", basicSalary: "$3000", allottedHours: "160", workingHours: "170", overtimeHours: "10", workingDays: "22", bankName: "Bank A", extraFund: "$200", advanceSalary: "$100", accountNo: "1234567890", pay: "$3300"
+        },
+        {
+            id: 2, employeeId: "E002", name: "Jane Smith", basicSalary: "$3200", allottedHours: "160", workingHours: "160", overtimeHours: "0", workingDays: "22", bankName: "Bank B", extraFund: "$150", advanceSalary: "$50", accountNo: "0987654321", pay: "$3400"
+        },
+        {
+            id: 1, employeeId: "E001", name: "John Doe", basicSalary: "$3000", allottedHours: "160", workingHours: "170", overtimeHours: "10", workingDays: "22", bankName: "Bank A", extraFund: "$200", advanceSalary: "$100", accountNo: "1234567890", pay: "$3300"
+        },
+        {
+            id: 2, employeeId: "E002", name: "Jane Smith", basicSalary: "$3200", allottedHours: "160", workingHours: "160", overtimeHours: "0", workingDays: "22", bankName: "Bank B", extraFund: "$150", advanceSalary: "$50", accountNo: "0987654321", pay: "$3400"
+        },
+        {
+            id: 1, employeeId: "E001", name: "John Doe", basicSalary: "$3000", allottedHours: "160", workingHours: "170", overtimeHours: "10", workingDays: "22", bankName: "Bank A", extraFund: "$200", advanceSalary: "$100", accountNo: "1234567890", pay: "$3300"
+        },
+        {
+            id: 2, employeeId: "E002", name: "Jane Smith", basicSalary: "$3200", allottedHours: "160", workingHours: "160", overtimeHours: "0", workingDays: "22", bankName: "Bank B", extraFund: "$150", advanceSalary: "$50", accountNo: "0987654321", pay: "$3400"
+        },
     ]);
     const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
@@ -38,7 +56,7 @@ const EmplyeeProfile = () => {
 
     return (
         <div className="table-container">
-            <div className="leave-header">
+            <div className="leave-header" style={{paddingBottom:'none'}}>
                 <form className="form">
                     <button>
                         <svg

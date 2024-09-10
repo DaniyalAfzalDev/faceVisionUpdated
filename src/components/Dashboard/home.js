@@ -66,19 +66,19 @@ const Home = () => {
                 return <Attendance />;
             case 'Leaves':
                 return <Leaves />;
-            case 'ShiftManagement':
+            case 'Shift Management':
                 return <ShiftManagement />;
             case 'Bonuses':
                 return <Bonuses />;
             case 'Reports':
                 return <Reports />;
-            case 'EmployeeProfile':
+            case 'Employee Profile':
                 return <EmployeeProfile />;
-            case 'PayRollLog':
+            case 'Payroll Log':
                 return <PayRollLog />;
             case 'Visitors':
                 return <Visitors />;
-            case 'Blocklist':
+            case 'Block Employee':
                 return <Blocklist />;
             case 'Settings':
                 return <Settings />;

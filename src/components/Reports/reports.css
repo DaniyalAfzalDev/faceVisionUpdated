@@ -27,6 +27,16 @@
     border: none;
     background-color: transparent;
     font-size: 0.8vw;
+    
+
+}
+
+.report-selector select option{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 0.8vw;
+
 
 }
 
@@ -86,6 +96,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    
 }
 
 .dropdown-menu li {
@@ -110,8 +121,8 @@
     margin-right: 8px;
 }
 .table-container thead tr th {
-    color: #6b7280;
-    background-color: #f9fafb;
+    color: var(--text-color);
+    background-color: var(--table-header-color);
 }
 .report-content{
     padding: 1%;
@@ -121,3 +132,4 @@
     box-shadow: var(--box-shadow);
 
 }
+

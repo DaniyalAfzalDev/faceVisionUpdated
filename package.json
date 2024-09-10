@@ -29,6 +29,7 @@
     "react-simple-maps": "^3.0.0",
     "react-table": "^7.8.0",
     "recharts": "^2.12.7",
+    "redux-persist": "^6.0.0",
     "spdf": "^0.0.4",
     "topojson-client": "^3.1.0",
     "typeface-roboto-condensed": "^1.1.13",

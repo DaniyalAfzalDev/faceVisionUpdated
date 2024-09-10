@@ -32,7 +32,6 @@ table thead th {
     /* background-color: var(--table-header-color); */
     color: white;
     padding: 10px;
-    text-align: left;
     border: 1px solid #ddd;
     border-collapse: separate;
 }

@@ -40,7 +40,7 @@
     border-radius: 10px;
     background-color: white;
     box-shadow: var(--box-shadow);
-    margin-top: 1%;
+    /* margin-top: 1%; */
 }
 
 .add-leave-form {
@@ -65,7 +65,14 @@
     border-radius: 4px;
     font-size: 14px;
 }
-
+.add-leave-form select{
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
 .form-time{
     display: flex;
     flex-direction: row;
@@ -198,4 +205,16 @@
     background-color: #D5E9BE; /* Light background for each item */
     padding: 3px 6px;
     border-radius: 3px;
+}
+.action-button.edit {
+    color: var(--success-button-color);
+    font-size: 0.9vw;
+    background-color: transparent;
+
+}
+
+.action-button.delete {
+    color: var(--fail-button-color);
+    font-size: 0.9vw;
+    background-color: transparent;
 }

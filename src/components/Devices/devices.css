@@ -249,6 +249,6 @@ input:checked+.slider:before {
     margin-top: 1%;
 }
 .device-table thead tr th{
-    color: #6b7280;
-    background-color: #f9fafb;
+    color: var(--text-color);
+    background-color: var(--table-header-color);
 }
