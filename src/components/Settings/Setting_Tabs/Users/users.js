@@ -215,7 +215,6 @@ const UsersTable = () => {
                                 <td>{item.email}</td>
                                 <td className="accessible-items">
                                     <td className="accessible-items">
-                                        {/* Ensure accessibleItems is an array, then map over each item */}
                                         {Array.isArray(item.accessibleItems) ? (
                                             item.accessibleItems.map((accessibleItem, index) => (
                                                 <span key={index}>{accessibleItem}</span>

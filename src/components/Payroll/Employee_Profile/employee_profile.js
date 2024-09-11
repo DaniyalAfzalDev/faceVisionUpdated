@@ -56,7 +56,7 @@ const EmplyeeProfile = () => {
 
     return (
         <div className="table-container">
-            <div className="leave-header" style={{paddingBottom:'none'}}>
+            <div className="leave-header">
                 <form className="form">
                     <button>
                         <svg
