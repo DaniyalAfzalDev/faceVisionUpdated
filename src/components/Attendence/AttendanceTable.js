@@ -123,36 +123,7 @@ const AttendanceTable = ({ data }) => {
         </form>
       </div>
 
-      <div className="attendance-table-outer">
-  <table className="attendance-table">
-    <thead>
-      <tr>
-        <th>S.No</th>
-        <th>Location</th>
-        <th>Employee ID</th>
-        <th>Employee Name</th>
-        <th>Time</th>
-        <th>Status</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      {filteredData.map((item, index) => (
-        <tr key={item.id}>
-          <td>{index + 1}</td>
-          <td>{item.location}</td>
-          <td>{item.employeeId}</td>
-          <td>{item.employeeName}</td>
-          <td>{item.time}</td>
-          <td>{item.status}</td>
-          <td>{item.date}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
-      {/* <div className="locations-table">
+      <div className="locations-table">
         <table {...getTableProps()} className="table">
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -178,7 +149,7 @@ const AttendanceTable = ({ data }) => {
             })}
           </tbody>
         </table>
-      </div> */}
+      </div>
 
       <div className="pagination">
         <ReactPaginate
